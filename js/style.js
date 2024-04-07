@@ -216,7 +216,7 @@ function htmlJunctionPanel (nodeElement, wayElement, country) {
 		destHTML.innerHTML = dest;
 		var divs = destHTML.querySelectorAll('div');
 		for (var i = 0; i < divs.length; i++) {
-			if (destColourArray[i].length > 0 && destColourArray[I] != 'none') {
+			if (destColourArray[i].length > 0 && destColourArray[i] != 'none') {
 				divs[i].style.backgroundColor = destColourArray[i];
 			}
 		}
