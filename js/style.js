@@ -217,7 +217,7 @@ function htmlJunctionPanel (nodeElement, wayElement, country) {
 		var divs = destHTML.querySelectorAll('div');
 		for (var i = 0; i < divs.length; i++) {
 			if (destColourArray[i].length > 0 && destColourArray[i] != 'none') {
-				divs[i].style.color = 'color: color-contrast(' + destColourArray[i] + ' vs black, white)'; //ensure contrasting font
+				divs[i].style.color = 'color-contrast(' + destColourArray[i] + ' vs black, white)'; //ensure contrasting font
 				divs[i].style.backgroundColor = destColourArray[i];
 			}
 		}
