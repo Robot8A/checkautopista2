@@ -210,15 +210,14 @@ function htmlJunctionPanel (nodeElement, wayElement, country) {
 	dest = '<div>' + dest.replace(/;/g, '</div><div>') + '</div>';
 
 	//Add destination:colour
-	var destColour = wayElement.tags['destination:colour'] || undefined;
-	if (destColour) {
-		var destColourList = destColour.split(';');
+	if (wayElement && wayElement.tags['destination:colour']!=undefined) {
+		var destColourArray = wayElement.tags['destination:colour'].split(';');
 		var destHTML = document.createElement('div');
 		destHTML.innerHTML = dest;
 		var divs = destHTML.querySelectorAll('div');
 		for (var i = 0; i < divs.length; i++) {
-			if (destColourList[i].length > 0) {
-				divs[i].style.backgroundColor = destColourList[i];
+			if (destColourArray[i].length > 0 && destColourArray[I] != 'none') {
+				divs[i].style.backgroundColor = destColourArray[i];
 			}
 		}
 		dest = destHTML.innerHTML;
