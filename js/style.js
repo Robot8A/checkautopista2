@@ -207,7 +207,24 @@ function htmlJunctionPanel (nodeElement, wayElement, country) {
 	} else {
 		var dest = nodeElement.tags.exit_to || nodeElement.tags.name || '&nbsp;';
 	};
-	dest = dest.replace(/;/g, '</br>');
+	dest = '<div>' + dest.replace(/;/g, '</div><div>') + '</div>';
+
+	//Add destination:colour
+	var destColour = wayElement.tags['destination:colour'] || undefined;
+	if (destColour) {
+		var destColourList = destColour.split(';');
+		var destHTML = document.createElement('div');
+		destHTML.innerHTML = dest;
+		var divs = destHTML.querySelectorAll('div');
+		for (var i = 0; i < divs.length; i++) {
+			if (destColourList[i].length > 0) {
+				divs[i].style.backgroundColor = destColourList[i];
+			}
+		}
+		dest = destHTML.innerHTML;
+	}
+
+
 	// Get destination:ref
 	var dest_ref = '';
 	if (wayElement && wayElement.tags['destination:ref']!=undefined) {
